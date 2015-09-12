@@ -10,4 +10,7 @@ log "Remove server files"
 rm -rf binary meta
 
 log "Unpack prod server dump"
-tar xf world.tar
+tar xf world.tar.xz
+
+log "Set owner"
+chown -R {{ konstructs_user }} binary meta
