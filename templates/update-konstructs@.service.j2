@@ -1,0 +1,15 @@
+[Unit]
+Description=Update and restart Konstructs Server
+
+[Service]
+ExecStartPre=/bin/systemctl stop konstructs
+ExecStart=/usr/local/bin/update-konstructs
+ExecStartPost=/bin/systemctl start konstructs
+StandardInput=socket
+WorkingDirectory={{ konstructs_path }}
+#PrivateTmp=true
+PrivateDevices=true
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
