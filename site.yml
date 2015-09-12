@@ -1,6 +1,13 @@
 ---
 
 - hosts: servers
+  handlers:
+    - name: restart konstructs
+      command: systemctl daemon-reload
+      notify: restart konstructs 2
+    - name: restart konstructs 2
+      service: name=konstructs state=restarted enabled=yes
+
   tasks:
     - name: Install OpenJDK
       apt: name=openjdk-7-jre-headless update_cache=yes
@@ -12,21 +19,20 @@
         home: /opt/konstructs
         system: yes
 
-- hosts: prod
-  handlers:
-    - name: restart konstructs
-      command: systemctl daemon-reload
-      notify: restart konstructs 2
-    - name: restart konstructs 2
-      service: name=konstructs state=restarted enabled=yes
-
-  tasks:
-    - name: Download konstructs release file to production server
+    - name: Download konstructs from bintray (sha256 verify)
       get_url:
         sha256sum: "{{ konstructs_jar_sha256 }}"
         url: "{{ konstructs_jar_url }}"
         dest: "/opt/konstructs/{{ konstructs_jar }}"
       notify: restart konstructs
+      when: konstructs_jar_sha256 is defined
+
+    - name: Download konstructs from bintray
+      get_url:
+        url: "{{ konstructs_jar_url }}"
+        dest: "/opt/konstructs/{{ konstructs_jar }}"
+      notify: restart konstructs
+      when: konstructs_jar_sha256 is not defined
 
     - name: Setup systemd init-script
       template:
