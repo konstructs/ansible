@@ -1,0 +1,35 @@
+---
+
+- hosts: servers
+  tasks:
+    - name: Install OpenJDK
+      apt: name=openjdk-7-jre-headless update_cache=yes
+
+    - name: Add konstructs user
+      user:
+        name: "{{ konstructs_user }}"
+        comment: "A user for the konstructs game server"
+        home: /opt/konstructs
+        system: yes
+
+- hosts: prod
+  handlers:
+    - name: restart konstructs
+      command: systemctl daemon-reload
+      notify: restart konstructs 2
+    - name: restart konstructs 2
+      service: name=konstructs state=restarted enabled=yes
+
+  tasks:
+    - name: Download konstructs release file to production server
+      get_url:
+        sha256sum: "{{ konstructs_jar_sha256 }}"
+        url: "{{ konstructs_jar_url }}"
+        dest: "/opt/konstructs/{{ konstructs_jar }}"
+      notify: restart konstructs
+
+    - name: Setup systemd init-script
+      template:
+        src: templates/konstructs.service.j2
+        dest: /etc/systemd/system/konstructs.service
+      notify: restart konstructs

@@ -1,0 +1,14 @@
+[Unit]
+Description=Konstructs Server
+
+[Service]
+WorkingDirectory={{ konstructs_path }}
+ExecStart=/usr/bin/java -jar {{ konstructs_jar_path }}
+User={{ konstructs_user }}
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
