@@ -2,6 +2,7 @@
 Description=Update and restart Konstructs Server
 
 [Service]
+Type=oneshot
 ExecStartPre=/bin/systemctl stop konstructs
 ExecStart=/usr/local/bin/update-konstructs
 ExecStartPost=/bin/systemctl start konstructs
