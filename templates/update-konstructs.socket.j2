@@ -2,7 +2,7 @@
 Description=Remote Konstructs Server update trigger
 
 [Socket]
-ListenStream=44711
+ListenStream={{ ansible_default_ipv4.address }}:44711
 Accept=yes
 
 [Install]
