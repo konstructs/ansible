@@ -27,6 +27,7 @@
         sha256sum: "{{ konstructs_jar_sha256 }}"
         url: "{{ konstructs_jar_url }}"
         dest: "{{ konstructs_path }}/{{ konstructs_jar }}"
+        force: yes
       notify: reload systemd and restart Konstructs
       when: konstructs_jar_sha256 is defined
 
