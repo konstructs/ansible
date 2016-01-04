@@ -3,4 +3,5 @@
 konstructs_path: /opt/konstructs
 konstructs_jar: "server.jar"
 konstructs_jar_path: "{{ konstructs_path }}/{{ konstructs_jar }}"
+konstructs_plugin_path: "{{ konstructs_path }}/lib/*"
 konstructs_user: konstructs
