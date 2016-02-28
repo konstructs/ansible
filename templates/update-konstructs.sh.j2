@@ -8,10 +8,11 @@ log() {
 }
 
 log "Remove server files"
-rm -rf binary meta
+rm -rf binary meta lib
 
 log "Unpack prod server dump"
-tar xf world.tar.xz
+# Start from a clean world
+#tar xf world.tar.xz
 
 log "Remove old server jar"
 rm server.jar
@@ -19,6 +20,15 @@ rm server.jar
 log "Download new dev server.jar"
 wget -qO server.jar \
 	https://bintray.com/artifact/download/konstructs/jars/konstructs-server-build-dev.jar
+
+# Download plugins
+mkdir -p lib
+(
+cd lib
+wget https://bintray.com/artifact/download/konstructs/plugins/20160228/server-plugin-flowers.jar
+wget https://bintray.com/artifact/download/konstructs/plugins/20160228/server-plugin-forest.jar
+wget https://bintray.com/artifact/download/konstructs/plugins/20160228/server-plugin-grass.jar
+)
 
 log "Set owner"
 chown -R {{ konstructs_user }} binary meta server.jar
