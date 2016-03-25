@@ -1,3 +1,13 @@
 ---
 
 konstructs_jar_url: "https://bintray.com/artifact/download/konstructs/jars/konstructs-server-build-dev.jar"
+
+konstructs_plugins:
+  - name: server-plugin-flowers
+    version: 20160325
+
+  - name: server-plugin-forest
+    version: 20160301
+
+  - name: server-plugin-grass
+    version: 20160325

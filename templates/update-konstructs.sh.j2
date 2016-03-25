@@ -25,9 +25,9 @@ wget -qO server.jar \
 mkdir -p lib
 (
 cd lib
-wget https://bintray.com/artifact/download/konstructs/plugins/20160325/server-plugin-flowers.jar
-wget https://bintray.com/artifact/download/konstructs/plugins/20160301/server-plugin-forest.jar
-wget https://bintray.com/artifact/download/konstructs/plugins/20160325/server-plugin-grass.jar
+{% for plugin in konstructs_plugins %}
+wget https://bintray.com/artifact/download/konstructs/plugins/{{ plugin.version }}/{{ plugin.name }}.jar
+{% endfor %}
 )
 
 log "Set owner"
