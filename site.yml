@@ -7,6 +7,8 @@
       notify: restart konstructs
     - name: restart konstructs
       service: name=konstructs state=restarted enabled=yes
+    - name: reload nginx
+      service: name=nginx state=reloaded
 
   tasks:
     - name: Install packages
@@ -14,6 +16,7 @@
       with_items:
         - openjdk-7-jre-headless
         - fail2ban
+        - nginx
 
     - name: Add konstructs user
       user:
@@ -43,6 +46,12 @@
         src: templates/konstructs.service.j2
         dest: /etc/systemd/system/konstructs.service
       notify: restart konstructs
+
+    - name: Setup redirect in nginx
+      template:
+        src: templates/nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+      notify: reload nginx
 
 - hosts: dev
   handlers:
