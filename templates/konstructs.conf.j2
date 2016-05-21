@@ -1,0 +1,48 @@
+konstructs {
+  org/konstructs/forest/oak {
+    min-growth-delay = 720
+    random-growth-delay = 1440
+  }
+  org/konstructs/forest/beech {
+    max-seeds-per-generation = 2
+    min-growth-delay = 720
+    random-growth-delay = 720
+  }
+  org/konstructs/konstructing {
+    konstructs {
+      play/konstructs/forest/oak/sapling {
+        match {
+          stacks = [
+            { id = org/konstructs/dirt },
+            { id = org/konstructs/grass }
+          ]
+          rows = 2
+          columns = 1
+        }
+        result.id = org/konstructs/forest/oak/sapling
+      }
+      play/konstructs/forest/beech/sapling {
+        match {
+          stacks = [
+            { id = org/konstructs/dirt },
+            { id = org/konstructs/forest/oak/sapling }
+          ]
+          rows = 2
+          columns = 1
+        }
+        result.id = org/konstructs/forest/beech/sapling
+      }
+      play/konstructs/forest/birch/sapling {
+        match {
+          stacks = [
+            { id = org/konstructs/dirt },
+            { id = org/konstructs/forest/beech/sapling }
+          ]
+          rows = 2
+          columns = 1
+        }
+        result.id = org/konstructs/forest/birch/sapling
+      }
+    }
+  }
+}

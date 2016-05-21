@@ -47,6 +47,12 @@
         dest: /etc/systemd/system/konstructs.service
       notify: restart konstructs
 
+    - name: Setup config for konstructs
+      template:
+        src: templates/konstructs.conf.j2
+        dest: /opt/konstructs/konstructs.conf
+      notify: restart konstructs
+
     - name: Setup redirect in nginx
       template:
         src: templates/nginx.conf.j2
