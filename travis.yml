@@ -1,6 +1,7 @@
 ---
 
 - hosts: travis
+  gather_facts: no
   tasks:
     - name: Setup .ssh directory
       local_action: file path=~/.ssh state=directory mode=0700
