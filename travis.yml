@@ -8,3 +8,7 @@
 
     - name: Setup ssh key
       local_action: template src=templates/varfile.j2 dest=~/.ssh/id_rsa mode=0600
+
+    - name: Setup key
+      local_action: copy content="{{ lookup('env','ANSIBLE_VAULT_KEY') }}" dest=vault mode=0700
+      no_log: True

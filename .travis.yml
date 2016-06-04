@@ -6,4 +6,4 @@ install:
   - pip install ansible
 
 script:
-  - ansible-playbook -i inventory.ini -u root travis.yml --diff
+  - ansible-playbook -i inventory.ini -u root travis.yml
