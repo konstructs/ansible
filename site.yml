@@ -15,12 +15,23 @@
       authorized_key: user=roor key="{{ item }}"
       with_items: "{{ konstructs_ssh_keys }}"
 
-    - name: Install packages
+    - name: Install packages (Common)
+      apt: name={{ item }} update_cache=yes
+      with_items:
+        - fail2ban
+        - nginx
+
+    - name: Install packages (Ubuntu)
+      apt: name={{ item }} update_cache=yes
+      with_items:
+        - openjdk-8-jre-headless
+      when: ansible_distribution_release == "xenial"
+
+    - name: Install packages (Debian)
       apt: name={{ item }} update_cache=yes
       with_items:
         - openjdk-7-jre-headless
-        - fail2ban
-        - nginx
+      when: ansible_distribution_release == "jessie"
 
     - name: Add konstructs user
       user:
