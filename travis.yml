@@ -1,0 +1,9 @@
+---
+
+- hosts: travis
+  tasks:
+    - name: Setup .ssh directory
+      local_action: file path=~/.ssh state=directory mode=0700
+
+    - name: Setup ssh key
+      local_action: template src=templates/varfile.j2 dest=~/.ssh/id_rsa mode=0600
