@@ -1,0 +1,9 @@
+---
+
+language: python
+
+install:
+  - pip install ansible
+
+script:
+  - ansible-playbook -i inventory.ini -u root site.yml --diff
