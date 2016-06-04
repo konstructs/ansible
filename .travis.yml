@@ -7,5 +7,6 @@ install:
 
 script:
   - ansible-playbook -i inventory.ini -u root travis.yml
+  - sha512sum ~/vault
   - ansible-playbook -i inventory.ini -u root travis-ssh.yml --private-key=~/vault
   - ansible-playbook -i inventory.ini -u root site.yml --diff
