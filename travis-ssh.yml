@@ -1,8 +1,10 @@
 ---
 
-- hosts: travis-enc
+- hosts: travis
   gather_facts: no
+  no_log: True
   tasks:
+    - include_vars: travis-enc-vars.yml
     - name: Setup ssh key
       local_action: template src=templates/varfile.j2 dest=~/.ssh/id_rsa mode=0600
       no_log: True
