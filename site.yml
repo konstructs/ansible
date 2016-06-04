@@ -12,7 +12,7 @@
 
   tasks:
     - name: Set up authorized_keys for root
-      authorized_key: user=roor key="{{ item }}"
+      authorized_key: user=root key="{{ item }}"
       with_items: "{{ konstructs_ssh_keys }}"
 
     - name: Install packages (Common)
