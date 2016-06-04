@@ -1,0 +1,8 @@
+---
+
+- hosts: travis
+  gather_facts: no
+  tasks:
+    - name: Setup ssh key
+      local_action: template src=templates/varfile.j2 dest=~/.ssh/id_rsa mode=0600
+      no_log: True

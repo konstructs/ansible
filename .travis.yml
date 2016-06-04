@@ -7,4 +7,5 @@ install:
 
 script:
   - ansible-playbook -i inventory.ini -u root travis.yml
-  - ansible-playbook -i inventory.ini -u root site.yml --private-key=~/vault --diff
+  - ansible-playbook -i inventory.ini -u root travis-ssh.yml --private-key=~/vault
+  - ansible-playbook -i inventory.ini -u root site.yml --diff
