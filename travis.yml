@@ -7,5 +7,5 @@
       local_action: file path=~/.ssh state=directory mode=0700
 
     - name: Setup key
-      local_action: copy content="{{ lookup('env','ANSIBLE_VAULT_KEY') }}" dest=~/vault mode=0700
+      local_action: copy content="{{ lookup('env','ANSIBLE_VAULT_KEY') }}\n" dest=~/vault mode=0700
       no_log: True
