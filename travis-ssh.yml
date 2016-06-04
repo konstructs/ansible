@@ -1,6 +1,6 @@
 ---
 
-- hosts: travis
+- hosts: travis-enc
   gather_facts: no
   tasks:
     - name: Setup ssh key
