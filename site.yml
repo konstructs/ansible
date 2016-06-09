@@ -97,3 +97,24 @@
         src: templates/update-konstructs.sh.j2
         dest: /usr/local/bin/update-konstructs
         mode: 0755
+
+    - name: Setup a swapfile
+      shell: dd if=/dev/zero of=/swapfile bs=1M count=1024
+      args:
+        creates: /swapfile
+      register: new_swapfile
+
+    - name: mkswap on new swapfile
+      shell: mkswap /swapfile
+      when: new_swapfile|changed
+
+    - name: swapon on new swapfile
+      shell: swapon -a
+      when: new_swapfile|changed
+
+    - name: Setup swap in fstab
+      mount:
+        name: none
+        src: /swapfile
+        fstype: swap
+        state: present
