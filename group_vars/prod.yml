@@ -1,4 +1,4 @@
 ---
 
-konstructs_jar_url: "https://bintray.com/artifact/download/konstructs/jars/konstructs-server-build-v0.1.17.jar"
-konstructs_jar_sha256: 5f1b1bb9ef54c518802d9d770aa443593d06a4d7334528331dd92e276c166ac8
+konstructs_jar_url: "https://github.com/konstructs/server/releases/download/v0.1.23/konstructs-server-0.1.23.jar"
+konstructs_jar_sha256: 1fb09e066700a5b8ac792852a43c506e331a5e875843f76deadaa6381bcdf617
