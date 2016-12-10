@@ -8,6 +8,16 @@ konstructs {
     min-growth-delay = 720
     random-growth-delay = 720
   }
+  org/konstructs/graphitemetric {
+    class = "konstructs.metric.GraphiteMetricPlugin"
+    host = "carbon.app.stefanberggren.se"
+    port = 2003
+    namespace-prefix = "konstructs"
+    reconnect-delay = 1000
+  }
+  org/konstructs/metric.listeners {
+    org/konstructs/graphitemetric {}
+  }
   org/konstructs/konstructing {
     konstructs {
       play/konstructs/forest/oak/sapling {
@@ -43,6 +53,11 @@ konstructs {
         }
         result.id = org/konstructs/forest/birch/sapling
       }
+    }
+  }
+  universe {
+    block-update-events {
+      org/konstructs/grass = null
     }
   }
 }
