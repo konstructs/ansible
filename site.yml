@@ -74,32 +74,8 @@
         dest: /etc/nginx/nginx.conf
       notify: reload nginx
 
-- hosts: dev
-  handlers:
-    - name: reload systemd
-      command: systemctl daemon-reload
-
-  tasks:
-    - name: Setup systemd socket and service for dev server reload
-      template:
-        src: "templates/{{ item }}.j2"
-        dest: "/etc/systemd/system/{{ item }}"
-      with_items:
-        - update-konstructs.socket
-        - update-konstructs@.service
-      notify: reload systemd
-
-    - name: Start update-konstructs.socket
-      service: name=update-konstructs.socket state=started enabled=yes
-
-    - name: Deploy update-konstructs script
-      template:
-        src: templates/update-konstructs.sh.j2
-        dest: /usr/local/bin/update-konstructs
-        mode: 0755
-
     - name: Setup a swapfile
-      shell: dd if=/dev/zero of=/swapfile bs=1M count=1024
+      shell: dd if=/dev/zero of=/swapfile bs=10M count=1024
       args:
         creates: /swapfile
       register: new_swapfile
