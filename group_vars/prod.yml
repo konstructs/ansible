@@ -1,7 +1,7 @@
 ---
 
-konstructs_jar_url: "https://github.com/konstructs/server/releases/download/v0.1.23/konstructs-server-0.1.23.jar"
-konstructs_jar_sha256: 1fb09e066700a5b8ac792852a43c506e331a5e875843f76deadaa6381bcdf617
+konstructs_jar_url: "https://github.com/konstructs/server/releases/download/v0.1.24/konstructs-server-0.1.24.jar"
+konstructs_jar_sha256: eb5a6f2bc4da14e5c51a7cb0c59e51fda8db2eec44315c39d7c4965c065550cd
 konstructs_plugins:
   - name: server-plugin-metals.jar
     src: "https://github.com/konstructs/server-plugin-metals/releases/download/0.1.0/server-plugin-metals.jar"
