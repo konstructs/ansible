@@ -2,3 +2,39 @@
 
 konstructs_jar_url: "https://github.com/konstructs/server/releases/download/v0.1.23/konstructs-server-0.1.23.jar"
 konstructs_jar_sha256: 1fb09e066700a5b8ac792852a43c506e331a5e875843f76deadaa6381bcdf617
+konstructs_plugins:
+  - name: server-plugin-metals.jar
+    src: "https://github.com/konstructs/server-plugin-metals/releases/download/0.1.0/server-plugin-metals.jar"
+    sha256sum: 5d52c66263ef287e8bdb21da24dc03099ec75ce8ccc0ced9927fd3d4d089b0aa
+
+  - name: server-plugin-tools.jar
+    src: "https://github.com/konstructs/server-plugin-tools/releases/download/0.1.0/server-plugin-tools.jar"
+    sha256sum: e28bf7d9fcc22cdfde0c7c8f31e3648a4847e7bda9cb69f309f24257eee3dd41
+
+  - name: server-plugin-two-year-anniversary-party-blocks.jar
+    src: "https://github.com/konstructs/server-plugin-two-year-anniversary-party-blocks/releases/download/0.1.0/server-plugin-two-year-anniversary-party-blocks.jar"
+    sha256sum: e28bf7d9fcc22cdfde0c7c8f31e3648a4847e7bda9cb69f309f24257eee3dd41
+
+  - name: server-plugin-forest.jar
+    src: "https://github.com/konstructs/server-plugin-forest/releases/download/0.1.3/server-plugin-forest.jar"
+    sha256sum: fa4b29577d755e8bed71981218bbb20d59bd3bceaec5345419d8ca7549effe6a
+
+  - name: server-plugin-ore.jar
+    src: "https://github.com/konstructs/server-plugin-ore/releases/download/0.1.2/server-plugin-ore.jar"
+    sha256sum: ee10d75b1feb8d68443ce6a7c9b6114f2645460f3b569cd3f30dec7d508a09eb
+
+  - name: server-plugin-light-stone.jar
+    src: "https://github.com/konstructs/server-plugin-light-stone/releases/download/0.1.0/server-plugin-light-stone.jar"
+    sha256sum: 039dcb44f4190ded48d8a0039978a10142aeed2b0f2d1cd80e4f59c614b76a93
+
+  - name: server-plugin-flowers.jar
+    src: "https://github.com/konstructs/server-plugin-flowers/releases/download/0.1.1/server-plugin-flowers.jar"
+    sha256sum: 5e1a261c03f034c23b9485c719901ac784402e2ade6ddb1944e4f7d4a74277c6
+
+  - name: server-plugin-caves.jar
+    src: "https://github.com/konstructs/server-plugin-caves/releases/download/0.1.0/server-plugin-caves.jar"
+    sha256sum: 5e44142995e3df79301646cd801d3bf9e85b6a054ea50b3e1a046c3167fa31fc
+
+  - name: server-plugin-grass.jar
+    src: "https://github.com/konstructs/server-plugin-grass/releases/download/0.1.2/server-plugin-grass.jar"
+    sha256sum: 52cc2b02d33176d24cfe278ea81bc19fafbb52d8c0f5e7142e0c9f74bac07477

@@ -40,21 +40,22 @@
         home: "{{ konstructs_path }}"
         system: yes
 
-    - name: Download konstructs from bintray (sha256 verify)
+    - name: Download konstructs
       get_url:
         sha256sum: "{{ konstructs_jar_sha256 }}"
         url: "{{ konstructs_jar_url }}"
         dest: "{{ konstructs_path }}/{{ konstructs_jar }}"
         force: yes
       notify: reload systemd and restart Konstructs
-      when: konstructs_jar_sha256 is defined
 
-    - name: Download konstructs from bintray
+    - name: Download konstructs plugins
       get_url:
-        url: "{{ konstructs_jar_url }}"
-        dest: "{{ konstructs_path }}/{{ konstructs_jar }}"
+        sha256sum: "{{ item.sha256sum }}"
+        url: "{{ item.src }}"
+        dest: "{{ konstructs_plugin_path }}/{{ item.name }}"
+        force: yes
       notify: reload systemd and restart Konstructs
-      when: konstructs_jar_sha256 is not defined
+      with_items: "{{ konstructs_plugins }}"
 
     - name: Setup systemd service for konstructs
       template:

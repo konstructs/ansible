@@ -3,7 +3,7 @@ Description=Konstructs Server
 
 [Service]
 WorkingDirectory={{ konstructs_path }}
-ExecStart=/usr/bin/java -Xmx750m -cp {{ konstructs_jar_path }}:{{ konstructs_plugin_path }} konstructs.Main
+ExecStart=/usr/bin/java -Xmx750m -cp {{ konstructs_jar_path }}:{{ konstructs_plugin_path }}/* konstructs.Main
 User={{ konstructs_user }}
 PrivateTmp=true
 PrivateDevices=true
