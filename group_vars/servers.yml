@@ -5,6 +5,7 @@ konstructs_jar: "server.jar"
 konstructs_jar_path: "{{ konstructs_path }}/{{ konstructs_jar }}"
 konstructs_plugin_path: "{{ konstructs_path }}/lib"
 konstructs_user: konstructs
+konstructs_xmx_memory: "{{ (ansible_memtotal_mb*0.75)|int }}m"
 konstructs_ssh_keys:
   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwAc+pKs5yZPvzHwj5r2MO/xsHem7Xbe5n7d7nM0pGIK6Sh9IX+7qx3NJJnLwxHWQ1R9BfejPr+LjJxeBIOfZxdhmezVHv1LagThc08QOZsnfCNu/5I8zr53tSguT/3O5ASnuTndqanN0Pplw/7cp78yHaMlOgnoUqq24Vx6m0qbNhiZhlWCr2b0fhSli2TjJ9XzB8b9VztpgLHCRhP7GPQbKzCH7UiZgjsle19WGodGDp0j4TwKTQl0+1z2r+zVfT9Xc0bFAFxM5ebQQGZqPkqLInski6KDN4yc8WIt3RcadqolHY7NlG7xPcgaxA2fGNxGJY05b3+2Hwv/CTzmk9 petter@petter-T440s
   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+xW/ETuffrqdgMaGs9K/6QggtW8Vh80O4Zwfno4m638uMFbiICDwSkfRAtg5O4jEtNj4Ey93U8h3wLmHnEq/EjQy5L/QpCFlSA/SMen5f30mrSJ/W6ehT7nB6WAgfCNjCoz+S8a0ZZ6rWLXtqO9drlBFT+g5lnyXKThNBBd+EKZRvMsGmaE8IC3YnFF13e2bjxuxmFZCZixCwTreaWCc4qLWJja47CRojqn3iYeajHHkUzFETuPymh8yry1+SCghWvJPvUugnIK21JY3uRPmnkExqblnqhnQLfspFTJ72J+FMpd7Na5gUqMhP57SBNY6AuY2FtNM7li82ZOc7R5uH nsg@narsil
