@@ -46,7 +46,7 @@
         url: "{{ konstructs_jar_url }}"
         dest: "{{ konstructs_path }}/{{ konstructs_jar }}"
         force: yes
-      notify: reload systemd and restart Konstructs
+      notify: restart konstructs
 
     - name: Download konstructs plugins
       get_url:
@@ -54,14 +54,14 @@
         url: "{{ item.src }}"
         dest: "{{ konstructs_plugin_path }}/{{ item.name }}"
         force: yes
-      notify: reload systemd and restart Konstructs
+      notify: restart konstructs
       with_items: "{{ konstructs_plugins }}"
 
     - name: Setup systemd service for konstructs
       template:
         src: templates/konstructs.service.j2
         dest: /etc/systemd/system/konstructs.service
-      notify: restart konstructs
+      notify: reload systemd and restart Konstructs
 
     - name: Setup config for konstructs
       template:
